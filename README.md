@@ -1,18 +1,13 @@
-# Parth Sarthi Portfolio
+# Parth Sarthi portfolio
 
-A lightweight responsive portfolio prototype built with plain HTML, CSS and JavaScript.
+A responsive static portfolio using semantic HTML, CSS, and native JavaScript. No runtime dependencies or build framework are required.
 
-## Run locally
-Open `index.html` directly in a browser, or run a small local server:
+Run `python3 -m http.server 8080`, then open http://localhost:8080.
 
-```bash
-python3 -m http.server 8080
-```
+- `index.html`: portfolio content and page structure.
+- `styles.css`: design tokens, responsive layouts, print and reduced-motion styles.
+- `script.js`: accessible native-dialog project stories.
+- `assets/Parth-Sarthi-Resume.pdf`: supplied updated resume.
+- `PROFILE-NEXT-STEPS.md`: exact content needed to strengthen the profile.
 
-Then open http://localhost:8080.
-
-## Recommended production evolution
-- Move to Next.js + TypeScript if you want CMS-backed case studies, analytics, SEO routing, or richer page transitions.
-- Add dedicated `/work/[slug]`, `/about`, and `/credentials` routes.
-- Replace any confidential project detail with public-safe descriptions approved by the employer/client.
-- Add downloadable resume only if desired.
+To prepare static output, run `python3 build.py`. Only public site assets are copied into `dist`; profile notes and source configuration are excluded.
