@@ -1,0 +1,297 @@
+{
+  "name": "Parth Sarthi",
+  "role": "Data Architect · Platform Modernisation · Technical & Delivery Leadership",
+  "email": "parthsarthi2928@gmail.com",
+  "linkedin": "https://linkedin.com/in/parthsarthi2928",
+  "origin": "https://parth-sarthi-portfolio.parthsarthi2928.chatgpt.site",
+  "projects": [
+    {
+      "slug": "idiscover",
+      "number": "01",
+      "name": "iDiscover",
+      "category": "Enterprise platform architecture",
+      "title": "A foundation that serves more than one business.",
+      "summary": "An enterprise data platform connecting pharmaceutical, commercial and supply chain needs through a shared architecture.",
+      "role": "Primary solution architect",
+      "status": "Established platform · ongoing evolution",
+      "metric": "2",
+      "metricLabel": "connected enterprise platforms: iDiscover + AnGen",
+      "stack": [
+        "AWS",
+        "Airflow",
+        "Redshift",
+        "PostgreSQL",
+        "Python / PySpark"
+      ],
+      "problem": "Pharmaceutical, commercial, and supply chain teams needed an enterprise data foundation spanning ingestion, warehousing, and downstream distribution.",
+      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
+      "ownership": "Primary solution architect, from initial design through platform evolution and delivery.",
+      "decisions": [
+        "Designed reusable, restartable, metadata-driven ETL patterns to support scalable onboarding.",
+        "Architected AWS pipelines orchestrated through Airflow, with Redshift and PostgreSQL warehouse models.",
+        "Integrated SPyDr source-to-target testing with JIRA evidence capture and established CI/CD and regression processes.",
+        "Replaced access-key-based access with IAM role-based authentication and optimised EMR configurations for workload needs."
+      ],
+      "execution": "Worked directly with Singapore stakeholders, including during a 2018 business visit, to shape iDiscover and OTIF solutioning. Translated requirements into epics and user stories, with Agile/Scrum delivery and governance of data quality and SLA adherence.",
+      "outcome": "Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation. Quantified savings are not yet included.",
+      "gaps": [
+        "Daily data volume and source-system count",
+        "Countries, teams and consumers served",
+        "Measured onboarding-time and compute-cost improvement"
+      ],
+      "flow": [
+        [
+          "Business sources",
+          "Pharmaceutical · Commercial · Supply chain"
+        ],
+        [
+          "Ingest & orchestrate",
+          "Metadata-driven ETL · Airflow · Python / PySpark"
+        ],
+        [
+          "Model & govern",
+          "Redshift · PostgreSQL · Dimensional models · MDM"
+        ],
+        [
+          "Distribute & analyse",
+          "AnGen semantic layer · Downstream consumers"
+        ]
+      ]
+    },
+    {
+      "slug": "modernisation",
+      "number": "02",
+      "name": "Platform modernisation",
+      "category": "From legacy ETL to managed platforms",
+      "title": "Modernisation is a sequence of decisions.",
+      "summary": "1,000+ Talend jobs migrated to AWS / Airflow. Now supporting the next stage of iDiscover’s evolution toward Databricks.",
+      "role": "Migration lead; contributor to ongoing Databricks modernisation",
+      "status": "AWS / Airflow complete · Databricks in progress",
+      "metric": "1,000+",
+      "metricLabel": "Talend ETL jobs migrated to AWS / Airflow",
+      "stack": [
+        "Talend",
+        "AWS",
+        "Airflow",
+        "Databricks",
+        "Python / PySpark"
+      ],
+      "problem": "A large Talend ETL estate needed more maintainable orchestration and reusable cloud engineering patterns.",
+      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
+      "ownership": "Led the migration of 1,000+ Talend jobs to an AWS-based Airflow framework. Currently supporting the next stage of iDiscover modernisation toward Databricks.",
+      "decisions": [
+        "Moved legacy ETL workloads into an AWS-based Apache Airflow framework.",
+        "Established reusable pipeline patterns and engineering standards for production workloads.",
+        "Supported team capability through mentoring and code reviews.",
+        "Now supporting the migration of orchestration and processing toward managed Databricks capabilities."
+      ],
+      "execution": "Combined ETL leadership, complex SQL development and warehouse modelling with cloud-framework delivery. The next platform phase is an ongoing contribution rather than a completed migration claim.",
+      "outcome": "Completed migration of 1,000+ ETL jobs to AWS / Airflow. The subsequent Databricks initiative is in progress; no completion or performance claims are made for that phase.",
+      "gaps": [
+        "Migration duration and validation approach",
+        "Before/after runtime, failure rate and cost",
+        "Databricks target design, ownership and current stage"
+      ],
+      "flow": [
+        [
+          "01 / Legacy estate",
+          "Talend · 1,000+ ETL jobs"
+        ],
+        [
+          "02 / Completed migration",
+          "AWS + Airflow · Reusable pipeline framework"
+        ],
+        [
+          "03 / Current evolution",
+          "Databricks · Orchestration and processing modernisation"
+        ]
+      ]
+    },
+    {
+      "slug": "angen",
+      "number": "03",
+      "name": "AnGen",
+      "category": "Analytics & semantic architecture",
+      "title": "A common language for business performance.",
+      "summary": "10+ governed data marts connecting commercial and medical data to consistent KPIs and Tableau reporting.",
+      "role": "Analytics architect & primary technical contact",
+      "status": "Established analytics layer",
+      "metric": "10+",
+      "metricLabel": "governed data marts forming the Tableau semantic layer",
+      "stack": [
+        "Redshift",
+        "SQL",
+        "Dimensional modelling",
+        "MDM",
+        "Tableau"
+      ],
+      "problem": "Commercial and medical analytics required consistent business definitions across markets and reporting use cases.",
+      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
+      "ownership": "Architect for the analytics layer on iDiscover, and primary technical contact for platform architecture, data quality, and delivery.",
+      "decisions": [
+        "Built 10+ governed data marts as the semantic layer for Tableau reporting.",
+        "Standardised business logic and metric definitions for commercial sales and market-performance KPIs.",
+        "Modelled Medical Science Liaison interactions with healthcare professionals, including communication modes and coverage.",
+        "Governed master-data mappings, data quality, and pipeline reliability across the two platforms."
+      ],
+      "execution": "Connected stakeholder needs with data models, aggregation strategies and semantic delivery. Governed mappings across Product, Therapeutic Area, Disease Area and related reference domains.",
+      "outcome": "Enabled commercial and medical analytics through a governed semantic layer, with 10+ data marts supporting consistent downstream reporting.",
+      "gaps": [
+        "Markets, active users and reporting teams",
+        "An anonymised KPI or semantic-model example",
+        "Reporting time saved and adoption evidence"
+      ],
+      "flow": [
+        [
+          "Enterprise foundation",
+          "iDiscover · Commercial and medical data"
+        ],
+        [
+          "Business relationships",
+          "Facts · Dimensions · Master-data mappings"
+        ],
+        [
+          "Semantic layer",
+          "10+ governed data marts · Shared KPI definitions"
+        ],
+        [
+          "Business consumption",
+          "Tableau · Sales, market and medical-field analytics"
+        ]
+      ]
+    },
+    {
+      "slug": "otif",
+      "number": "04",
+      "name": "OTIF",
+      "category": "Supply chain data engineering · 2019",
+      "title": "The engineering inside “on time”.",
+      "summary": "Calendar-aware pipelines for On Time In Full delivery measurement.",
+      "role": "Data engineering & delivery-date logic",
+      "status": "Delivered project · 2019",
+      "metric": "2019",
+      "metricLabel": "supply chain OTIF project",
+      "stack": [
+        "SQL",
+        "Data pipelines",
+        "Supply chain modelling"
+      ],
+      "problem": "On Time In Full reporting depends on an expected delivery date that reflects actual operational calendars.",
+      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
+      "ownership": "Data engineering and delivery-date processing logic for the supply chain OTIF solution.",
+      "decisions": [
+        "Incorporated warehouse holidays, public holidays, transit time, and delivery-calendar dependencies into expected-date calculations.",
+        "Transformed operational and logistics data into analytics-ready datasets.",
+        "Created pipelines to calculate and track On Time In Full metrics."
+      ],
+      "execution": "Contributed to stakeholder solutioning during the 2018 Singapore business visit and delivered the OTIF data-engineering work in 2019.",
+      "outcome": "Enabled OTIF reporting using calendar-aware delivery calculations. Business improvement percentages and the reporting scale remain to be documented.",
+      "gaps": [
+        "Shipment volume and geographical coverage",
+        "A worked delivery-date example",
+        "Reporting accuracy or time improvement"
+      ],
+      "flow": [
+        [
+          "Operational inputs",
+          "Orders · Logistics records"
+        ],
+        [
+          "Calendar logic",
+          "Warehouse holidays · Public holidays · Transit time"
+        ],
+        [
+          "Expected delivery",
+          "Delivery-calendar dependencies"
+        ],
+        [
+          "Performance view",
+          "On Time In Full metrics"
+        ]
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Data Engineer Associate",
+      "label": "Databricks Certified",
+      "group": "Databricks",
+      "type": "Certification",
+      "url": null
+    },
+    {
+      "title": "Databricks Fundamentals",
+      "label": "Databricks Accredited",
+      "group": "Databricks",
+      "type": "Accreditation",
+      "url": null
+    },
+    {
+      "title": "Architect Professional",
+      "label": "Claude Certified",
+      "group": "Claude",
+      "type": "Credential listed in résumé",
+      "url": null
+    },
+    {
+      "title": "Developer Foundations",
+      "label": "Claude Certified",
+      "group": "Claude",
+      "type": "Credential listed in résumé",
+      "url": null
+    },
+    {
+      "title": "Associate Foundations",
+      "label": "Claude Certified",
+      "group": "Claude",
+      "type": "Credential listed in résumé",
+      "url": null
+    }
+  ],
+  "milestones": [
+    [
+      "2016",
+      "Engineering foundations",
+      "Joined TCS in December, following a B.E. in Computer Science & Engineering at SJBIT, VTU."
+    ],
+    [
+      "2019–20",
+      "Technical progression",
+      "Digital Cadre designation in February 2019; promoted to IT Analyst in February 2020."
+    ],
+    [
+      "2022",
+      "Singapore, onsite",
+      "Deputed onsite to Johnson & Johnson in April, working directly with business stakeholders."
+    ],
+    [
+      "2023–now",
+      "Architecture & delivery",
+      "Promoted to Assistant Consultant in November 2023; ongoing platform architecture and portfolio leadership."
+    ]
+  ],
+  "photography": [
+    {
+      "id": "portrait",
+      "title": "The person behind the work.",
+      "status": "placeholder",
+      "src": null,
+      "alt": "",
+      "ratio": "4:5",
+      "caption": "Environmental portrait · photograph to be added"
+    },
+    {
+      "id": "fieldnote",
+      "title": "A different point of view.",
+      "status": "placeholder",
+      "src": null,
+      "alt": "",
+      "ratio": "3:2",
+      "caption": "A personal photograph and the story behind it · to be added"
+    }
+  ],
+  "achievements": [],
+  "writing": [],
+  "community": [],
+  "testimonials": []
+}

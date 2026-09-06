@@ -1,21 +1,76 @@
-const cases = {
- idiscover: { kicker: 'PLATFORM ARCHITECTURE / IDISCOVER', title: 'A shared foundation for enterprise data.', context: 'Pharmaceutical, commercial, and supply chain teams needed an enterprise data foundation spanning ingestion, warehousing, and downstream distribution.', role: 'Primary solution architect, from initial design through platform evolution and delivery.', decisions: ['Designed reusable, restartable, metadata-driven ETL patterns to support scalable onboarding.', 'Architected AWS pipelines orchestrated through Airflow, with Redshift and PostgreSQL warehouse models.', 'Integrated SPyDr source-to-target testing with JIRA evidence capture and established CI/CD and regression processes.', 'Replaced access-key-based access with IAM role-based authentication and optimised EMR configurations for workload needs.'], outcome: 'Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation. Quantified savings are not yet included.' },
- angen: { kicker: 'ANALYTICS ARCHITECTURE / ANGEN', title: 'From warehouse data to governed business metrics.', context: 'Commercial and medical analytics required consistent business definitions across markets and reporting use cases.', role: 'Architect for the analytics layer on iDiscover, and primary technical contact for platform architecture, data quality, and delivery.', decisions: ['Built 10+ governed data marts as the semantic layer for Tableau reporting.', 'Standardised business logic and metric definitions for commercial sales and market-performance KPIs.', 'Modelled Medical Science Liaison interactions with healthcare professionals, including communication modes and coverage.', 'Governed master-data mappings, data quality, and pipeline reliability across the two platforms.'], outcome: 'Enabled commercial and medical analytics through a governed semantic layer, with 10+ data marts supporting consistent downstream reporting.' },
- modern: { kicker: 'PLATFORM MODERNISATION', title: 'A platform that can keep evolving.', context: 'A large Talend ETL estate needed more maintainable orchestration and reusable cloud engineering patterns.', role: 'Led the migration of 1,000+ Talend jobs to an AWS-based Airflow framework. Currently supporting the next stage of iDiscover modernisation toward Databricks.', decisions: ['Moved legacy ETL workloads into an AWS-based Apache Airflow framework.', 'Established reusable pipeline patterns and engineering standards for production workloads.', 'Supported team capability through mentoring and code reviews.', 'Now supporting the migration of orchestration and processing toward managed Databricks capabilities.'], outcome: 'Completed migration of 1,000+ ETL jobs to AWS / Airflow. The subsequent Databricks initiative is in progress; no completion or performance claims are made for that phase.' },
- otif: { kicker: 'SUPPLY CHAIN / OTIF / 2019', title: 'Engineering an accurate view of delivery performance.', context: 'On Time In Full reporting depends on an expected delivery date that reflects actual operational calendars.', role: 'Data engineering and delivery-date processing logic for the supply chain OTIF solution.', decisions: ['Incorporated warehouse holidays, public holidays, transit time, and delivery-calendar dependencies into expected-date calculations.', 'Transformed operational and logistics data into analytics-ready datasets.', 'Created pipelines to calculate and track On Time In Full metrics.'], outcome: 'Enabled OTIF reporting using calendar-aware delivery calculations. Business improvement percentages and the reporting scale remain to be documented.' }
-};
-const dialog = document.querySelector('#case-modal');
-const content = document.querySelector('#modal-content');
-let opener;
-document.querySelectorAll('[data-modal]').forEach(button => button.addEventListener('click', () => {
- const item = cases[button.dataset.modal];
- opener = button;
- content.innerHTML = `<article class="modal-body"><p class="eyebrow">${item.kicker}</p><h2 id="case-title">${item.title}</h2><h3>The challenge</h3><p>${item.context}</p><h3>My role</h3><p>${item.role}</p><h3>Key decisions & contributions</h3><ul>${item.decisions.map(text => `<li>${text}</li>`).join('')}</ul><h3>The outcome</h3><p>${item.outcome}</p></article>`;
- dialog.showModal();
- document.body.style.overflow = 'hidden';
- dialog.scrollTop = 0;
-}));
-document.querySelector('.modal-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-dialog.addEventListener('close', () => { document.body.style.overflow = ''; opener?.focus(); });
-document.querySelector('#year').textContent = new Date().getFullYear();
+'use strict';
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const menuButton = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('#mobile-menu');
+function closeMenu(restoreFocus = false) {
+  if (!menuButton || !mobileMenu) return;
+  menuButton.setAttribute('aria-expanded', 'false');
+  mobileMenu.hidden = true;
+  if (restoreFocus) menuButton.focus();
+}
+menuButton?.addEventListener('click', () => {
+  const opening = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(opening));
+  mobileMenu.hidden = !opening;
+});
+mobileMenu?.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') closeMenu(true); });
+document.addEventListener('click', event => { if (!event.target.closest('.site-header')) closeMenu(); });
+window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+
+const explorer = document.querySelector('.system-explorer');
+if (explorer) {
+  const links = [...explorer.querySelectorAll('[data-system]')];
+  const panels = [...explorer.querySelectorAll('.system-panels article')];
+  const activate = id => {
+    links.forEach(link => link.setAttribute('aria-current', String(link.dataset.system === id)));
+    panels.forEach(panel => { panel.hidden = panel.id !== id; });
+  };
+  explorer.classList.add('enhanced');
+  activate(panels.some(panel => '#'+panel.id === location.hash) ? location.hash.slice(1) : panels[0].id);
+  links.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    activate(link.dataset.system);
+  }));
+  window.addEventListener('hashchange', () => { if (panels.some(panel => '#'+panel.id === location.hash)) activate(location.hash.slice(1)); });
+}
+
+const gallery = document.querySelector('#credential-gallery');
+if (gallery) {
+  const cards = [...gallery.querySelectorAll('.credential-card')];
+  const filters = [...document.querySelectorAll('[data-filter]')];
+  const status = document.querySelector('.credential-status');
+  const previous = document.querySelector('[data-gallery-prev]');
+  const next = document.querySelector('[data-gallery-next]');
+  const updateControls = () => {
+    previous.disabled = gallery.scrollLeft <= 2;
+    next.disabled = gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth - 2;
+  };
+  filters.forEach(button => button.addEventListener('click', () => {
+    filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+    cards.forEach(card => { card.hidden = button.dataset.filter !== 'all' && card.dataset.group !== button.dataset.filter; });
+    gallery.scrollTo({left:0, behavior:'instant'});
+    const count = cards.filter(card => !card.hidden).length;
+    status.textContent = `${count} credentials · Names supplied in résumé; verification links and dates to be added.`;
+    requestAnimationFrame(updateControls);
+  }));
+  const advance = direction => gallery.scrollBy({left:direction * (gallery.querySelector('.credential-card:not([hidden])').getBoundingClientRect().width + 25), behavior:reducedMotion.matches ? 'instant' : 'smooth'});
+  previous.addEventListener('click', () => advance(-1));
+  next.addEventListener('click', () => advance(1));
+  gallery.addEventListener('scroll', updateControls, {passive:true});
+  new ResizeObserver(updateControls).observe(gallery);
+  updateControls();
+}
+const progress = document.querySelector('.reading-progress');
+if (progress) {
+  let scheduled = false;
+  const update = () => {
+    const range = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = `${range > 0 ? Math.min(100, Math.max(0, scrollY / range * 100)) : 0}%`;
+    scheduled = false;
+  };
+  window.addEventListener('scroll', () => { if (!scheduled && !reducedMotion.matches) { scheduled = true; requestAnimationFrame(update); } }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+}
+document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
