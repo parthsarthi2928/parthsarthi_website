@@ -6,16 +6,16 @@
   "origin": "https://parth-sarthi-portfolio.parthsarthi2928.chatgpt.site",
   "projects": [
     {
-      "slug": "idiscover",
+      "slug": "enterprise-platform",
       "number": "01",
-      "name": "iDiscover",
+      "name": "Enterprise data platform",
       "category": "Enterprise platform architecture",
       "title": "A foundation that serves more than one business.",
-      "summary": "An enterprise data platform connecting pharmaceutical, commercial and supply chain needs through a shared architecture.",
+      "summary": "An enterprise data platform supporting multiple business domains through shared architecture.",
       "role": "Primary solution architect",
       "status": "Established platform · ongoing evolution",
-      "metric": "2",
-      "metricLabel": "connected enterprise platforms: iDiscover + AnGen",
+      "metric": "1",
+      "metricLabel": "shared enterprise data foundation across multiple business areas",
       "stack": [
         "AWS",
         "Airflow",
@@ -23,20 +23,20 @@
         "PostgreSQL",
         "Python / PySpark"
       ],
-      "problem": "Pharmaceutical, commercial, and supply chain teams needed an enterprise data foundation spanning ingestion, warehousing, and downstream distribution.",
+      "problem": "Teams across several business domains needed a common data foundation spanning ingestion, warehousing, and downstream analytics.",
       "ownership": "Primary solution architect, from initial design through platform evolution and delivery.",
       "decisions": [
         "Designed reusable, restartable, metadata-driven ETL patterns to support scalable onboarding.",
         "Architected AWS pipelines orchestrated through Airflow, with Redshift and PostgreSQL warehouse models.",
-        "Integrated SPyDr source-to-target testing with JIRA evidence capture and established CI/CD and regression processes.",
+        "Integrated source-to-target testing with issue-tracking evidence and established CI/CD and regression processes.",
         "Replaced access-key-based access with IAM role-based authentication and optimised EMR configurations for workload needs."
       ],
-      "execution": "Worked directly with Singapore stakeholders, including during a 2018 business visit, to shape iDiscover and OTIF solutioning. Translated requirements into epics and user stories, with Agile/Scrum delivery and governance of data quality and SLA adherence.",
-      "outcome": "Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation.",
+      "execution": "Collaborated with business stakeholders on platform and supply-chain solution design. Translated requirements into delivery backlogs, Agile/Scrum execution, data-quality controls, and SLA governance.",
+      "outcome": "Established a shared enterprise data foundation and reusable ingestion and modelling patterns across multiple business domains; workload optimisation improved infrastructure utilisation.",
       "flow": [
         [
           "Business sources",
-          "Pharmaceutical · Commercial · Supply chain"
+          "Multiple enterprise domains"
         ],
         [
           "Ingest & orchestrate",
@@ -48,17 +48,17 @@
         ],
         [
           "Distribute & analyse",
-          "AnGen semantic layer · Downstream consumers"
+          "Governed analytics layer · Downstream consumers"
         ]
       ]
     },
     {
-      "slug": "modernisation",
+      "slug": "platform-modernisation",
       "number": "02",
       "name": "Platform modernisation",
       "category": "From legacy ETL to managed platforms",
       "title": "Modernisation is a sequence of decisions.",
-      "summary": "1,000+ Talend jobs migrated to AWS / Airflow. Now supporting the next stage of iDiscover’s evolution toward Databricks.",
+      "summary": "1,000+ legacy ETL jobs migrated to AWS / Airflow, with ongoing evolution toward Databricks.",
       "role": "Migration lead; contributor to ongoing Databricks modernisation",
       "status": "AWS / Airflow complete · Databricks in progress",
       "metric": "1,000+",
@@ -71,12 +71,12 @@
         "Python / PySpark"
       ],
       "problem": "A large Talend ETL estate needed more maintainable orchestration and reusable cloud engineering patterns.",
-      "ownership": "Led the migration of 1,000+ Talend jobs to an AWS-based Airflow framework. Currently supporting the next stage of iDiscover modernisation toward Databricks.",
+      "ownership": "Led the migration of 1,000+ Talend jobs to an AWS-based Airflow framework. Currently supporting the next stage of platform modernisation toward Databricks.",
       "decisions": [
         "Moved legacy ETL workloads into an AWS-based Apache Airflow framework.",
         "Established reusable pipeline patterns and engineering standards for production workloads.",
         "Supported team capability through mentoring and code reviews.",
-        "Now supporting the migration of orchestration and processing toward managed Databricks capabilities."
+        "Now supporting the evolution of orchestration and processing toward managed Databricks capabilities."
       ],
       "execution": "Combined ETL leadership, complex SQL development and warehouse modelling with cloud-framework delivery. The next platform phase is an ongoing contribution rather than a completed migration claim.",
       "outcome": "Completed migration of 1,000+ ETL jobs to AWS / Airflow. The subsequent Databricks initiative is in progress; no completion or performance claims are made for that phase.",
@@ -91,17 +91,17 @@
         ],
         [
           "03 / Current evolution",
-          "Databricks · Orchestration and processing modernisation"
+          "Databricks · Managed orchestration and processing"
         ]
       ]
     },
     {
-      "slug": "angen",
+      "slug": "commercial-analytics",
       "number": "03",
-      "name": "AnGen",
+      "name": "Commercial & healthcare analytics",
       "category": "Analytics & semantic architecture",
       "title": "A common language for business performance.",
-      "summary": "10+ governed data marts connecting commercial and medical data to consistent KPIs and Tableau reporting.",
+      "summary": "10+ governed data marts connecting commercial and healthcare analytics to consistent KPIs and Tableau reporting.",
       "role": "Analytics architect & primary technical contact",
       "status": "Established analytics layer",
       "metric": "10+",
@@ -114,23 +114,23 @@
         "Tableau"
       ],
       "problem": "Commercial and medical analytics required consistent business definitions across markets and reporting use cases.",
-      "ownership": "Architect for the analytics layer on iDiscover, and primary technical contact for platform architecture, data quality, and delivery.",
+      "ownership": "Architect for an enterprise analytics layer, and primary technical contact for platform architecture, data quality, and delivery.",
       "decisions": [
         "Built 10+ governed data marts as the semantic layer for Tableau reporting.",
         "Standardised business logic and metric definitions for commercial sales and market-performance KPIs.",
-        "Modelled Medical Science Liaison interactions with healthcare professionals, including communication modes and coverage.",
-        "Governed master-data mappings, data quality, and pipeline reliability across the two platforms."
+        "Designed dimensional models for healthcare-domain analytics and related operational measures.",
+        "Governed master-data mappings, data quality, and pipeline reliability across enterprise analytics workflows."
       ],
-      "execution": "Connected stakeholder needs with data models, aggregation strategies and semantic delivery. Governed mappings across Product, Therapeutic Area, Disease Area and related reference domains.",
-      "outcome": "Enabled commercial and medical analytics through a governed semantic layer, with 10+ data marts supporting consistent downstream reporting.",
+      "execution": "Connected stakeholder needs with data models, aggregation strategies, and semantic delivery. Governed product and domain reference data across enterprise reporting.",
+      "outcome": "Enabled commercial and healthcare analytics through a governed semantic layer, with 10+ data marts supporting consistent downstream reporting.",
       "flow": [
         [
-          "Enterprise foundation",
-          "iDiscover · Commercial and medical data"
+          "Enterprise business data",
+          "Commercial and healthcare domains"
         ],
         [
           "Business relationships",
-          "Facts · Dimensions · Master-data mappings"
+          "Facts · Dimensions · Reference-data mappings"
         ],
         [
           "Semantic layer",
@@ -138,35 +138,35 @@
         ],
         [
           "Business consumption",
-          "Tableau · Sales, market and medical-field analytics"
+          "Tableau · Consistent enterprise reporting"
         ]
       ]
     },
     {
-      "slug": "otif",
+      "slug": "supply-chain-analytics",
       "number": "04",
-      "name": "OTIF",
-      "category": "Supply chain data engineering · 2019",
-      "title": "The engineering inside “on time”.",
-      "summary": "Calendar-aware pipelines for On Time In Full delivery measurement.",
+      "name": "Supply-chain analytics",
+      "category": "Supply-chain data engineering · 2019",
+      "title": "Reliable delivery data, built around real calendars.",
+      "summary": "Calendar-aware pipelines for expected-delivery calculations and supply-chain reporting.",
       "role": "Data engineering & delivery-date logic",
       "status": "Delivered project · 2019",
       "metric": "2019",
-      "metricLabel": "supply chain OTIF project",
+      "metricLabel": "supply-chain delivery analytics",
       "stack": [
         "SQL",
         "Data pipelines",
         "Supply chain modelling"
       ],
-      "problem": "On Time In Full reporting depends on an expected delivery date that reflects actual operational calendars.",
-      "ownership": "Data engineering and delivery-date processing logic for the supply chain OTIF solution.",
+      "problem": "Supply-chain reporting depends on expected delivery dates that reflect operational calendars and transit time.",
+      "ownership": "Data engineering and delivery-date processing logic for supply-chain reporting.",
       "decisions": [
         "Incorporated warehouse holidays, public holidays, transit time, and delivery-calendar dependencies into expected-date calculations.",
         "Transformed operational and logistics data into analytics-ready datasets.",
-        "Created pipelines to calculate and track On Time In Full metrics."
+        "Created pipelines to calculate and track delivery-performance measures."
       ],
-      "execution": "Contributed to stakeholder solutioning during the 2018 Singapore business visit and delivered the OTIF data-engineering work in 2019.",
-      "outcome": "Enabled OTIF reporting using calendar-aware delivery calculations. Business improvement percentages and the reporting scale remain to be documented.",
+      "execution": "Collaborated with stakeholders on solution design and delivered data-engineering work for supply-chain analytics.",
+      "outcome": "Enabled supply-chain performance reporting with delivery-date calculations that account for operational calendars and transit time.",
       "flow": [
         [
           "Operational inputs",
@@ -174,15 +174,15 @@
         ],
         [
           "Calendar logic",
-          "Warehouse holidays · Public holidays · Transit time"
+          "Operational holidays · Transit time"
         ],
         [
           "Expected delivery",
-          "Delivery-calendar dependencies"
+          "Calendar-aware delivery dates"
         ],
         [
           "Performance view",
-          "On Time In Full metrics"
+          "Supply-chain reporting"
         ]
       ]
     }
@@ -262,8 +262,8 @@
     ],
     [
       "2022",
-      "Singapore, onsite",
-      "Deputed onsite to Johnson & Johnson in April, working directly with business stakeholders."
+      "Enterprise client engagement",
+      "Began an onsite enterprise client engagement through TCS, working directly with business stakeholders."
     ],
     [
       "2023–now",

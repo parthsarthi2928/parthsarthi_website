@@ -9,7 +9,7 @@ The portfolio uses Parth’s Databricks event portrait, the supplied Super 30 ph
 | What is needed | Why it changes perception | Where | Exactly what to provide | Blocks launch? |
 |---|---|---|---|---|
 | Three quantified project outcomes | Converts architecture responsibility into evidence of business value | Flagship cases, selected impact | For each flagship: baseline → result, measurement period, source of number, your contribution. Prioritise runtime, onboarding time, compute cost, reliability, or reporting time saved. Ranges are acceptable if accurate. | No; current claims remain limited to documented results. |
-| Enterprise scale | Shows how demanding the architecture was | iDiscover and AnGen cases | Daily volume; source/pipeline counts; markets/countries; active users or business teams; SLA. Specify peak vs typical and dates. | No. |
+| Enterprise scale | Shows how demanding the architecture was | enterprise platform and analytics layer cases | Daily volume; source/pipeline counts; markets/countries; active users or business teams; SLA. Specify peak vs typical and dates. | No. |
 | Leadership scope and one consequential decision | Distinguishes portfolio coordination from people management and architecture authority | Leadership | Number of direct reports vs technical reports vs partner teams; projects in the ~60-person portfolio; one priority/conflict you resolved, your authority, and outcome. | No; direct reporting is not assumed. |
 | One architectural trade-off | Demonstrates senior judgment rather than tool familiarity | Modernisation and platform cases | Problem, constraints, alternatives, chosen design, reason, your decision ownership, and consequence. For Databricks: scope, stage, validation/cutover approach, and exactly what you own. | No. |
 | Environmental portrait | Makes the site recognisably yours and materially improves trust | Hero | Supplied Databricks Data + AI World Tour photo is now used in the hero. A calmer architectural portrait can be added later only if you prefer a less event-forward first impression. | No. The supplied photo is suitable for the current version. |
@@ -73,7 +73,7 @@ When photos arrive, each will be classified **USE / POTENTIALLY USEFUL / REPLACE
 
 1. Which two roles should this site win interviews for, and in which locations?
 2. What are your strongest three measured before/after results? Include baseline, result, timeframe and your contribution.
-3. How large were iDiscover and AnGen in data volume, sources, markets and active users?
+3. How large were enterprise platform and analytics layer in data volume, sources, markets and active users?
 4. For the ~60-person portfolio, what was your actual reporting/decision scope? Describe one difficult delivery or people decision and its outcome.
 5. What was the hardest architecture trade-off you personally owned? What alternatives did you reject and why?
 6. What exactly is your role and the current completion stage in Airflow → Databricks modernisation?

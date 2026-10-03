@@ -26,20 +26,23 @@ def frame(body,title,description,path='',prefix=''):
 
 def graphic(project):
     slug=project['slug']
-    if slug=='idiscover':
-        inner='<div class="platform-map"><div class="domain-stack"><span>Pharmaceutical</span><span>Commercial</span><span>Supply chain</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="platform-core"><strong>iDiscover</strong><p>INGEST / MODEL / GOVERN</p></div></div><div class="platform-out"><span>Enterprise warehouse</span><span>→</span><span>AnGen / analytics</span></div>'
+    if slug=='enterprise-platform':
+        inner='<div class="platform-map"><div class="domain-stack"><span>Enterprise domain 01</span><span>Enterprise domain 02</span><span>Enterprise domain 03</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="platform-core"><strong>Shared data foundation</strong><p>INGEST / MODEL / GOVERN</p></div></div><div class="platform-out"><span>Enterprise warehouse</span><span>→</span><span>Enterprise analytics</span></div>'
         kind='platform'; label='A SHARED ENTERPRISE FOUNDATION'
-    elif slug=='modernisation':
+    elif slug=='platform-modernisation':
         inner='<div class="modern-line"><div><span>01</span><strong>Talend</strong><small>Legacy ETL estate</small></div><div><span>02</span><strong>AWS / Airflow</strong><small>1,000+ jobs migrated</small></div><div><span>03</span><strong>Databricks</strong><small>Current evolution · in progress</small></div></div>'
         kind='modern';label='PLATFORM EVOLUTION / THREE CHAPTERS'
+    elif slug=='commercial-analytics':
+        inner='<div class="semantic-map"><p>COMMERCIAL + HEALTHCARE ANALYTICS</p><div class="semantic-marts">'+''.join(f'<span>{i:02}</span>' for i in range(1,11))+'</div><strong>10+</strong><small>GOVERNED DATA MARTS → TABLEAU</small></div>'
+        kind='analytics';label='THE SEMANTIC LAYER / ENTERPRISE REPORTING'
     else:
-        inner='<div class="semantic-map"><p>COMMERCIAL + MEDICAL DATA</p><div class="semantic-marts">'+''.join(f'<span>{i:02}</span>' for i in range(1,11))+'</div><strong>10+</strong><small>GOVERNED DATA MARTS → TABLEAU</small></div>'
-        kind='analytics';label='THE SEMANTIC LAYER / ANGEN'
+        inner='<div class="modern-line"><div><span>01</span><strong>Operational inputs</strong><small>Orders and logistics records</small></div><div><span>02</span><strong>Calendar logic</strong><small>Operational days and transit</small></div><div><span>03</span><strong>Delivery reporting</strong><small>Expected-date measures</small></div></div>'
+        kind='modern';label='SUPPLY-CHAIN DELIVERY ANALYTICS'
     return f'<div class="project-graphic graphic-{kind}" role="img" aria-label="{esc(project["summary"])}"><span class="graphic-label">{label}</span>{inner}<span class="graphic-caption">CONCEPTUAL VIEW / {project["number"]}</span></div>'
 
 projects=''
 for p in DATA['projects'][:3]:
-    projects+=f'<article class="project-feature">{graphic(p)}<div class="project-info"><div class="project-kicker"><span>{p["number"]}</span><span class="eyebrow">{esc(p["category"])}</span></div><h3>{esc(p["title"])}</h3><p>{esc(p["summary"])}</p><p class="project-name">{esc(p["name"])} / TCS · Johnson & Johnson</p><a class="text-link" href="work/{p["slug"]}/">Read the case study <span>↗</span></a></div></article>'
+    projects+=f'<article class="project-feature">{graphic(p)}<div class="project-info"><div class="project-kicker"><span>{p["number"]}</span><span class="eyebrow">{esc(p["category"])}</span></div><h3>{esc(p["title"])}</h3><p>{esc(p["summary"])}</p><p class="project-name">{esc(p["name"])} / Enterprise client engagement through TCS</p><a class="text-link" href="work/{p["slug"]}/">Read the case study <span>↗</span></a></div></article>'
 milestones=''.join(f'<article><span class="eyebrow">{esc(year)}</span><h3>{esc(title)}</h3><p>{esc(copy)}</p></article>' for year,title,copy in DATA['milestones'])
 credentials=''
 brand_marks={
@@ -93,10 +96,13 @@ for collection in ('achievements','community','writing','testimonials'):
         extra+='</section>'
 body=body.replace('<section class="contact-section"',extra+'<section class="contact-section"')
 (ROOT/'index.html').write_text(frame(body,'Parth Sarthi — Data Architecture & Technical Leadership','Data architecture, platform modernisation and delivery leadership. Explore Parth Sarthi’s enterprise platforms, 1,000+ job migration and ~60-person delivery portfolio.'))
+for folder in (ROOT/'work').iterdir():
+    if folder.is_dir() and folder.name not in {project['slug'] for project in DATA['projects']}:
+        shutil.rmtree(folder)
 for i,p in enumerate(DATA['projects']):
     nxt=DATA['projects'][(i+1)%len(DATA['projects'])]
     vals={k.upper():esc(v) for k,v in p.items() if isinstance(v,str)}
-    vals.update(HEADLINE=esc(p['title']),PROBLEM_TITLE='The challenge behind the platform.' if p['slug']!='otif' else 'A delivery date has dependencies.',FLOW=''.join(f'<div class="case-flow-step"><span>{j+1:02}</span><div><strong>{esc(title)}</strong><small>{esc(copy)}</small></div></div>' for j,(title,copy) in enumerate(p['flow'])),DECISIONS=''.join(f'<article><span>{j+1:02}</span><p>{esc(copy)}</p></article>' for j,copy in enumerate(p['decisions'])),STACK=' · '.join(map(esc,p['stack'])),METRIC_LABEL=esc(p['metricLabel']),NEXT_SLUG=nxt['slug'],NEXT_NAME=esc(nxt['name']))
+    vals.update(HEADLINE=esc(p['title']),PROBLEM_TITLE='A delivery date has dependencies.' if p['slug']=='supply-chain-analytics' else 'The challenge behind the platform.',FLOW=''.join(f'<div class="case-flow-step"><span>{j+1:02}</span><div><strong>{esc(title)}</strong><small>{esc(copy)}</small></div></div>' for j,(title,copy) in enumerate(p['flow'])),DECISIONS=''.join(f'<article><span>{j+1:02}</span><p>{esc(copy)}</p></article>' for j,copy in enumerate(p['decisions'])),STACK=' · '.join(map(esc,p['stack'])),METRIC_LABEL=esc(p['metricLabel']),NEXT_SLUG=nxt['slug'],NEXT_NAME=esc(nxt['name']))
     folder=ROOT/'work'/p['slug'];folder.mkdir(parents=True,exist_ok=True)
     (folder/'index.html').write_text(frame(template('case.html',vals),p['name']+' — '+p['title'],p['summary'],'work/'+p['slug']+'/', '../../'))
 # Build only an explicit allowlist; never publish briefs or source documents.

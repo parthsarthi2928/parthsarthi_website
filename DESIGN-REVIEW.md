@@ -20,7 +20,7 @@ Desktop/mobile CSS and all source content were audited. Both résumés had alrea
 
 Who and how senior → documented scale → three flagship cases → architectural decisions → portfolio leadership and progression → academic/person story → continuing learning → contact.
 
-OTIF is a fourth, deeper archive entry. MDM and Flyway governance appear where they explain modelling and leadership; they do not become empty stand-alone “projects”. Unprovided achievements, community activities and writing have data collections but remain unpublished.
+Supply-chain delivery analytics is a fourth, deeper archive entry. MDM and Flyway governance appear where they explain modelling and leadership; they do not become empty stand-alone “projects”. Unprovided achievements, community activities and writing have data collections but remain unpublished.
 
 ## Mobile choices
 
