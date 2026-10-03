@@ -24,7 +24,6 @@
         "Python / PySpark"
       ],
       "problem": "Pharmaceutical, commercial, and supply chain teams needed an enterprise data foundation spanning ingestion, warehousing, and downstream distribution.",
-      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
       "ownership": "Primary solution architect, from initial design through platform evolution and delivery.",
       "decisions": [
         "Designed reusable, restartable, metadata-driven ETL patterns to support scalable onboarding.",
@@ -77,7 +76,6 @@
         "Python / PySpark"
       ],
       "problem": "A large Talend ETL estate needed more maintainable orchestration and reusable cloud engineering patterns.",
-      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
       "ownership": "Led the migration of 1,000+ Talend jobs to an AWS-based Airflow framework. Currently supporting the next stage of iDiscover modernisation toward Databricks.",
       "decisions": [
         "Moved legacy ETL workloads into an AWS-based Apache Airflow framework.",
@@ -126,7 +124,6 @@
         "Tableau"
       ],
       "problem": "Commercial and medical analytics required consistent business definitions across markets and reporting use cases.",
-      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
       "ownership": "Architect for the analytics layer on iDiscover, and primary technical contact for platform architecture, data quality, and delivery.",
       "decisions": [
         "Built 10+ governed data marts as the semantic layer for Tableau reporting.",
@@ -177,7 +174,6 @@
         "Supply chain modelling"
       ],
       "problem": "On Time In Full reporting depends on an expected delivery date that reflects actual operational calendars.",
-      "context": "Johnson & Johnson engagement through Tata Consultancy Services. Scope and responsibilities are based on the supplied résumés.",
       "ownership": "Data engineering and delivery-date processing logic for the supply chain OTIF solution.",
       "decisions": [
         "Incorporated warehouse holidays, public holidays, transit time, and delivery-calendar dependencies into expected-date calculations.",
