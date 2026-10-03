@@ -51,7 +51,8 @@ if (gallery) {
     cards.forEach(card => { card.hidden = button.dataset.filter !== 'all' && card.dataset.group !== button.dataset.filter; });
     gallery.scrollTo({left:0, behavior:'instant'});
     const count = cards.filter(card => !card.hidden).length;
-    status.textContent = `${count} credentials · Names supplied in résumé; verification links and dates to be added.`;
+    const verified = cards.filter(card => !card.hidden && card.querySelector('.credential-verifications a')).length;
+    status.textContent = `${count} credentials · ${verified} with verification links; ${count - verified} pending.`;
     requestAnimationFrame(updateControls);
   }));
   const advance = direction => gallery.scrollBy({left:direction * (gallery.querySelector('.credential-card:not([hidden])').getBoundingClientRect().width + 25), behavior:reducedMotion.matches ? 'instant' : 'smooth'});

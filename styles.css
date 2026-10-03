@@ -124,17 +124,29 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
   align-items:center;
   gap:16px
 }
-.monogram {
+.brand-monogram {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  height:48px;
   font-family:var(--serif);
-  font-size:49px;
-  letter-spacing:-.07em;
-  line-height:.8
+  font-size:39px;
+  line-height:1;
+  letter-spacing:-.06em
 }
-.brand>span:last-child {
-  font-size:10px;
-  line-height:1.3;
+.brand-monogram i {
+  align-self:center;
+  width:1px;
+  height:43px;
+  background:var(--accent)
+}
+.brand-wordmark {
+  font-family:var(--serif);
+  font-size:17px;
   letter-spacing:.12em;
-  font-weight:600
+  line-height:1;
+  white-space:nowrap
 }
 .desktop-nav {
   display:flex;
@@ -1511,14 +1523,20 @@ details[open]>summary>span {
     padding:22px 0;
     gap:15px
   }
-  .monogram {
-    font-size:42px
+  .brand-monogram {
+    height:40px;
+    font-size:33px;
+    gap:5px
+  }
+  .brand-monogram i {
+    height:36px
+  }
+  .brand-wordmark {
+    font-size:14px;
+    letter-spacing:.1em
   }
   .brand {
-    gap:12px
-  }
-  .brand>span:last-child {
-    font-size:9px
+    gap:11px
   }
   .desktop-nav {
     display:none
@@ -1614,13 +1632,18 @@ details[open]>summary>span {
     gap:25px;
     padding-top:0
   }
-  .portrait-slot {
-    aspect-ratio:1.1;
-    padding:15px;
-    min-height:180px
+  .hero-aside>.hero-portrait {
+    min-height:215px;
+    aspect-ratio:4/5
   }
-  .portrait-monogram {
-    font-size:155px
+  .hero-aside>.hero-portrait figcaption {
+    bottom:9px;
+    left:9px;
+    padding:5px 7px;
+    font-size:10px
+  }
+  .super30-photo img {
+    max-height:270px
   }
   .slot-top>.eyebrow {
     font-size:7px
@@ -2327,8 +2350,64 @@ details[open]>summary>span {
 .real-photo figcaption {
   font-size:12px;
   color:var(--muted);
-  margin-top:10px
+  margin-top:10px;
+  line-height:1.65
 }
+.hero-aside>.hero-portrait {
+  width:100%;
+  aspect-ratio:4/5;
+  position:relative;
+  overflow:hidden;
+  background:var(--pale)
+}
+.hero-aside>.hero-portrait img {
+  height:100%;
+  object-fit:cover;
+  object-position:center 40%
+}
+.hero-aside>.hero-portrait figcaption {
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  background:#282b27eF;
+  color:var(--paper);
+  padding:7px 10px;
+  font-size:11px
+}
+.super30-photo {
+  margin:20px 0 23px;
+  padding:0;
+  background:#d6d8d1
+}
+.super30-photo img {
+  max-height:340px;
+  object-fit:contain!important;
+  object-position:center;
+  background:#d6d8d1
+}
+.super30-photo figcaption {
+  margin-top:0;
+  padding:10px 12px;
+  border-top:1px solid var(--line)
+}
+.credential-verifications {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  align-items:flex-start
+}
+.credential-verifications a {
+  color:var(--accent);
+  text-decoration:underline;
+  text-decoration-color:#b99a91;
+  text-underline-offset:3px;
+  font-size:12px;
+  line-height:1.5
+}
+.credential-verifications a:hover {
+  text-decoration-color:var(--accent)
+}
+
 .additional-stories {
   border-top:1px solid var(--line)
 }

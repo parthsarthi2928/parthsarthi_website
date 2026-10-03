@@ -2,7 +2,7 @@
 
 The strongest supported narrative is **engineering depth → architecture ownership → delivery across teams**. The portfolio connects a completed 1,000+ job migration, two related enterprise platforms, 10+ semantic data marts, international stakeholder work and a ~60-person delivery portfolio. Your analytical education and real life outside work should give that professional story a human signature.
 
-The current private version intentionally includes labelled photographic placeholders. It does not invent hobbies, awards, testimonials, community involvement, project metrics or a Super 30 cohort result.
+The portfolio uses Parth’s Databricks event portrait, the supplied Super 30 photograph, and the supplied Anand Kumar image in the personal fieldnote. Verified links are attached to the Databricks Certified Data Engineer Associate, Claude Certified Architect Professional, and both Claude Associate Foundations badges. It does not invent hobbies, awards, testimonials, community involvement, project metrics or a Super 30 cohort result.
 
 ## P0 — High impact
 
@@ -12,9 +12,9 @@ The current private version intentionally includes labelled photographic placeho
 | Enterprise scale | Shows how demanding the architecture was | iDiscover and AnGen cases | Daily volume; source/pipeline counts; markets/countries; active users or business teams; SLA. Specify peak vs typical and dates. | No. |
 | Leadership scope and one consequential decision | Distinguishes portfolio coordination from people management and architecture authority | Leadership | Number of direct reports vs technical reports vs partner teams; projects in the ~60-person portfolio; one priority/conflict you resolved, your authority, and outcome. | No; direct reporting is not assumed. |
 | One architectural trade-off | Demonstrates senior judgment rather than tool familiarity | Modernisation and platform cases | Problem, constraints, alternatives, chosen design, reason, your decision ownership, and consequence. For Databricks: scope, stage, validation/cutover approach, and exactly what you own. | No. |
-| Environmental portrait | Makes the site recognisably yours and materially improves trust | Hero | See Shot A below. Supply original-resolution image, not a screenshot or compressed messaging copy. | No for private review; strongly recommended before recruiter launch. |
+| Environmental portrait | Makes the site recognisably yours and materially improves trust | Hero | Supplied Databricks Data + AI World Tour photo is now used in the hero. A calmer architectural portrait can be added later only if you prefer a less event-forward first impression. | No. The supplied photo is suitable for the current version. |
 | Confirm Super 30 relationship | Enables a defensible academic-selectivity claim | Education / person | Year, programme/class, whether you were competitively selected into the 30-person cohort, and any evidence you are comfortable sharing. A class taught by Anand sir is valuable even if it was outside that cohort. | Only blocks a personal cohort/selectivity claim. Current wording says “student of Anand Kumar.” |
-| Verify credentials | Protects credibility and enables working verification links | Credential gallery | Exact title, issuer, issue/expiry dates, public credential URL or original badge. In particular confirm whether each Claude item is a certification, course certificate or another credential. | No for private review; verify or remove uncertain entries before public launch. |
+| Add remaining credential dates | Adds useful context without distracting from experience | Credential gallery | Databricks Fundamentals and Claude Developer Foundations issue dates, if you want dates shown. The supplied public links for Databricks Data Engineer Associate, Claude Architect Professional and two Claude Associate Foundations badges are now active. | No. |
 
 ## P1 — Strong enhancement
 
@@ -37,18 +37,18 @@ The current private version intentionally includes labelled photographic placeho
 
 ## Photography direction
 
-### Shot A — Environmental portrait (P0)
+### Shot A — Environmental portrait (currently supplied)
 
 - **Find/photograph:** Parth in a modern, quiet architectural environment: a covered walkway, simple workspace, library or concrete/stone façade.
 - **Purpose:** Put a credible, approachable person beside the senior technical positioning.
 - **Composition:** Portrait 4:5, waist-up or three-quarter length; subject slightly right of centre, turned gently toward the copy on the left. Leave 10–15% breathing room above the head. No crossed-arms power pose required.
 - **Background:** Clean vertical lines and depth; avoid company logos, readable screens, crowds and busy signage.
 - **Mood/light:** Natural window or open-shade light; composed and warm, neutral clothing with texture. Colour is welcome; treatment can be restrained and slightly desaturated.
-- **Capture:** A deliberate new session is worthwhile. A modern phone is sufficient in good light; use the main camera, avoid strong portrait-mode blur, and send the original at least 2000px on the long side.
-- **Placement:** Hero right on desktop; compact portrait next to current engagement on mobile. Keep a second wider 3:2 frame from the same session for future editorial use.
+- **Capture:** The supplied portrait is in use. A deliberate quieter session is optional; a modern phone is sufficient in good light.
+- **Placement:** Hero right on desktop; compact portrait next to current engagement on mobile.
 - **Positioning benefit:** Recognition, confidence and approachability without stock-image associations.
 
-### Shot B — A personal fieldnote (P1)
+### Shot B — A personal fieldnote (P1; still requested)
 
 - **Find/photograph:** One real place or moment from an interest you actively pursue. A travel photograph is useful only with a personal story; it is not necessary to travel or stage an interest for the website.
 - **Composition:** Landscape 3:2, strong focal point, natural negative space, room to crop 10% at the edges. You may be in the frame, but need not be.
@@ -78,7 +78,7 @@ When photos arrive, each will be classified **USE / POTENTIALLY USEFUL / REPLACE
 5. What was the hardest architecture trade-off you personally owned? What alternatives did you reject and why?
 6. What exactly is your role and the current completion stage in Airflow → Databricks modernisation?
 7. When and in which class/programme did you study under Anand Kumar? Were you selected into the Super 30 cohort? What is one memorable, specific learning experience?
-8. Can you provide credential links and one permissioned recommendation with a concrete example?
+8. Can you share issue dates for the remaining unlinked credentials and one permissioned recommendation with a concrete example?
 9. Which one activity or contribution outside work best represents you? Share an actual moment, an original photograph if available, and why it matters.
 
 ## Underused differentiators
@@ -91,4 +91,4 @@ When photos arrive, each will be classified **USE / POTENTIALLY USEFUL / REPLACE
 
 ## Launch status
 
-The design can be reviewed privately now. For recruiter-facing publication, the highest-value final pass is: portrait, credential verification, confirmation that named project details are suitable for public use, and replacing the personal-story placeholder. Missing numerical results do not block launch; the site does not substitute invented figures. Public access has not been enabled.
+The design can be reviewed privately now. For recruiter-facing publication, the highest-value final pass is: confirmation that named project details are suitable for public use, issue dates for any remaining credential cards you want to enrich, and replacing the personal-fieldnote placeholder when a suitable photo and story are ready. Missing numerical results do not block launch; the site does not substitute invented figures. Public access has not been enabled.

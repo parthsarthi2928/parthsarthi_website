@@ -14,8 +14,8 @@ A static, data-driven personal portfolio: homepage plus four permanent case-stud
 ## Content model
 
 - `projects`: slug, number, name, category, title, summary, role, status, metric, metricLabel, stack, problem, context, ownership, decisions, execution, outcome, gaps and flow.
-- `credentials`: title, label, group, type, url. A null URL shows a verification-pending label, not a dead link.
-- `photography`: id (`portrait` or `fieldnote`), src, alt, ratio, caption, title, optional story. Use paths under `assets/`. Null src renders the intentional placeholder. A supplied image requires descriptive alt text; fieldnote supports its own story. Optimise before adding (WebP/AVIF when practical); preserve original files outside public assets.
+- `credentials`: title, label, group, type, and `verificationLinks` (label + URL). Credentials without links show a verification-pending label, not a dead link.
+- `photography`: id (`portrait`, `fieldnote` or `super30`), src, alt, width, height, ratio, caption, title, optional story. Use paths under `assets/`. Null src renders the intentional placeholder. A supplied image requires descriptive alt text; fieldnote supports its own story. Optimise before adding (WebP/AVIF when practical); preserve original files outside public assets.
 - `achievements`, `community`, `writing`, `testimonials`: optional arrays. Entries use title, description, optional url, and `published: true`. Empty/unapproved collections are not rendered. Publish only real, permissioned content.
 - `milestones`: year, title, description.
 

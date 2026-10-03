@@ -217,35 +217,60 @@
       "label": "Databricks Certified",
       "group": "Databricks",
       "type": "Certification",
-      "url": null
+      "verificationLinks": [
+        {
+          "label": "Verification link",
+          "url": "https://credentials.databricks.com/f15c2ebb-4aef-404e-b9d9-c94a98a530a0#acc.aiQZCYOu"
+        }
+      ]
     },
     {
       "title": "Databricks Fundamentals",
       "label": "Databricks Accredited",
       "group": "Databricks",
       "type": "Accreditation",
-      "url": null
+      "verificationLinks": [
+        {
+          "label": "Verification link",
+          "url": "https://credentials.databricks.com/201a2214-502b-41ec-b8c9-1dfa63dad0ca#acc.VJugpckK"
+        }
+      ]
     },
     {
       "title": "Architect Professional",
       "label": "Claude Certified",
       "group": "Claude",
-      "type": "Credential listed in résumé",
-      "url": null
+      "type": "Certification",
+      "verificationLinks": [
+        {
+          "label": "Verification link",
+          "url": "https://www.credly.com/badges/c57fc7d3-00bf-4f54-9a64-ca5c960165f4/public_url"
+        }
+      ]
     },
     {
       "title": "Developer Foundations",
       "label": "Claude Certified",
       "group": "Claude",
-      "type": "Credential listed in résumé",
-      "url": null
+      "type": "Certification",
+      "verificationLinks": [
+        {
+          "label": "Verification link",
+          "url": "https://www.credly.com/badges/e1dc1d64-bfd6-4637-b072-cfb55341c694/public_url"
+        }
+      ]
     },
     {
       "title": "Associate Foundations",
       "label": "Claude Certified",
       "group": "Claude",
-      "type": "Credential listed in résumé",
-      "url": null
+      "type": "Certification",
+      "verificationLinks": [
+        {
+          "label": "Verification link",
+          "url": "https://www.credly.com/badges/ae996572-3b55-4da8-8b9e-5ec533519d74/public_url"
+        }
+      ]
     }
   ],
   "milestones": [
@@ -274,20 +299,36 @@
     {
       "id": "portrait",
       "title": "The person behind the work.",
-      "status": "placeholder",
-      "src": null,
-      "alt": "",
-      "ratio": "4:5",
-      "caption": "Environmental portrait · photograph to be added"
+      "status": "provided",
+      "src": "assets/parth-portrait.jpg",
+      "alt": "Parth Sarthi at the Databricks Data + AI World Tour in Singapore.",
+      "ratio": "1275:1700",
+      "caption": "Databricks Data + AI World Tour · Singapore",
+      "width": 1275,
+      "height": 1700
+    },
+    {
+      "id": "super30",
+      "title": "Super 30 · programme context",
+      "status": "provided",
+      "src": "assets/super-30-programme.jpg",
+      "alt": "Archival photograph of a Super 30 event banner and a young man standing beside it.",
+      "ratio": "1250:914",
+      "caption": "Archival photograph from a Super 30 event.",
+      "width": 1250,
+      "height": 914
     },
     {
       "id": "fieldnote",
       "title": "A different point of view.",
-      "status": "placeholder",
-      "src": null,
-      "alt": "",
-      "ratio": "3:2",
-      "caption": "A personal photograph and the story behind it · to be added"
+      "status": "provided",
+      "src": "assets/anand-sir.avif",
+      "alt": "Anand Kumar, the educator Parth studied under through Super 30.",
+      "ratio": "650:487",
+      "caption": "Anand Kumar · Super 30",
+      "width": 650,
+      "height": 487,
+      "story": "Anand Kumar was one of my teachers through Super 30, an early chapter in my education."
     }
   ],
   "achievements": [],

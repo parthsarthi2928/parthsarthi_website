@@ -41,21 +41,39 @@ for p in DATA['projects'][:3]:
 milestones=''.join(f'<article><span class="eyebrow">{esc(year)}</span><h3>{esc(title)}</h3><p>{esc(copy)}</p></article>' for year,title,copy in DATA['milestones'])
 credentials=''
 for i,c in enumerate(DATA['credentials']):
-    action=f'<a href="{esc(c["url"])}" target="_blank" rel="noopener">Verify ↗</a>' if c['url'] else '<span>Verification link pending</span>'
+    links=c.get('verificationLinks') or ([{'label':'Verify credential','url':c['url']}] if c.get('url') else [])
+    for verification in links:
+        assert urlsplit(verification['url']).scheme == 'https', f'Credential URL must use HTTPS: {c["title"]}'
+    if links:
+        action='<div class="credential-verifications">'+''.join(
+            f'<a href="{esc(item["url"])}" target="_blank" rel="noopener noreferrer">{esc(item["label"])}</a>'
+            for item in links
+        )+'</div>'
+    else:
+        action='<span>Verification link pending</span>'
     credentials+=f'<article class="credential-card" data-group="{esc(c["group"])}"><span class="eyebrow">{esc(c["label"])}</span><h3>{esc(c["title"])}</h3><p>{esc(c["type"])}</p><div class="credential-bottom">{action}<span>{i+1:02}</span></div></article>'
-body=template('home.html',dict(PROJECTS=projects,MILESTONES=milestones,CREDENTIALS=credentials))
+body=template('home.html',dict(PROJECTS=projects,MILESTONES=milestones,CREDENTIALS=credentials,SUPER30_IMAGE='__SUPER30_IMAGE__'))
 # Curated photography slots can be replaced by editing content only.
 for photo in DATA['photography']:
     if photo['src']:
         assert photo['alt'], 'Published photography requires descriptive alt text'
-        ratio=photo['ratio'].replace(':',' / ')
-        image=f'<figure class="real-photo"><img src="{esc(photo["src"])}" alt="{esc(photo["alt"])}" width="1200" height="{1500 if photo["id"]=="portrait" else 800}" loading="{ "eager" if photo["id"]=="portrait" else "lazy"}" style="aspect-ratio:{ratio};object-fit:cover"><figcaption>{esc(photo["caption"])}</figcaption></figure>'
-        pattern=r'<div class="portrait-slot">.*?</div></div>' if photo['id']=='portrait' else r'<div class="fieldnote-slot">.*?</div></div>'
-        body=re.sub(pattern,lambda match:image,body,count=1,flags=re.S)
-        if photo['id']=='fieldnote':
+        width,height=photo['width'],photo['height']
+        ratio=f'{width} / {height}'
+        image=f'<figure class="real-photo"><img src="{esc(photo["src"])}" alt="{esc(photo["alt"])}" width="{width}" height="{height}" loading="{ "eager" if photo["id"]=="portrait" else "lazy"}" style="aspect-ratio:{ratio};object-fit:cover"><figcaption>{esc(photo["caption"])}</figcaption></figure>'
+        if photo['id']=='portrait':
+            image=image.replace('class="real-photo"','class="real-photo hero-portrait"')
+            pattern=r'<div class="portrait-slot">.*?</div></div>'
+            body=re.sub(pattern,lambda match:image,body,count=1,flags=re.S)
+        elif photo['id']=='super30':
+            image=image.replace('class="real-photo"','class="real-photo super30-photo"')
+            body=body.replace('__SUPER30_IMAGE__',image,1)
+        elif photo['id']=='fieldnote':
+            image=image.replace('class="real-photo"','class="real-photo fieldnote-photo"')
+            pattern=r'<div class="fieldnote-slot">.*?</div>'
+            body=re.sub(pattern,lambda match:image,body,count=1,flags=re.S)
             body=body.replace('There’s more to the story.',esc(photo['title']))
             body=body.replace('A space for a real moment beyond work—and the story that makes it worth sharing.',esc(photo.get('story','')))
-            body=re.sub(r'<p class="draft-note">.*?</p>','',body)
+            if photo.get('story'):body=re.sub(r'<p class="draft-note">.*?</p>','',body)
 # Optional authentic material is rendered only when supplied and approved.
 extra=''
 for collection in ('achievements','community','writing','testimonials'):
