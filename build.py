@@ -1,11 +1,12 @@
 """Generate portable static pages from the portfolio content and shared templates."""
-import json, re, shutil
+import hashlib, json, re, shutil
 from pathlib import Path
 from html import escape
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 ROOT=Path(__file__).resolve().parent
 DATA=json.loads((ROOT/'content/portfolio.json').read_text())
+CSS_VERSION=hashlib.sha256((ROOT/'styles.css').read_bytes()).hexdigest()[:12]
 def esc(value): return escape(str(value), quote=True)
 def template(name, values):
     text=(ROOT/'templates'/name).read_text()
@@ -20,7 +21,7 @@ def frame(body,title,description,path='',prefix=''):
         social=f'<meta property="og:image" content="{DATA["origin"]}/assets/social-preview.jpg"><meta property="og:image:width" content="1734"><meta property="og:image:height" content="907"><meta property="og:image:alt" content="Parth Sarthi — Data architecture, platform modernisation and technical leadership"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{DATA["origin"]}/assets/social-preview.jpg">'
     person={'@context':'https://schema.org','@type':'Person','name':DATA['name'],'url':DATA['origin'],'jobTitle':'Solution Architect','email':'mailto:'+DATA['email'],'sameAs':[DATA['linkedin']],'worksFor':{'@type':'Organization','name':'Tata Consultancy Services'},'knowsAbout':['Data architecture','Data engineering','Platform modernisation','Technical leadership']}
     schema=person if not path else {'@context':'https://schema.org','@type':'Article','headline':title,'description':description,'url':canonical,'author':{'@type':'Person','name':DATA['name'],'url':DATA['origin']}}
-    return template('base.html',dict(BODY=body,TITLE=esc(title),DESCRIPTION=esc(description),CANONICAL=esc(canonical),ROOT=prefix,SOCIAL=social,SCHEMA=json.dumps(schema).replace('</','<\\/')))
+    return template('base.html',dict(BODY=body,TITLE=esc(title),DESCRIPTION=esc(description),CANONICAL=esc(canonical),ROOT=prefix,CSS_VERSION=CSS_VERSION,SOCIAL=social,SCHEMA=json.dumps(schema).replace('</','<\\/')))
 
 def graphic(project):
     slug=project['slug']
