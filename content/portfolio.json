@@ -33,11 +33,6 @@
       ],
       "execution": "Worked directly with Singapore stakeholders, including during a 2018 business visit, to shape iDiscover and OTIF solutioning. Translated requirements into epics and user stories, with Agile/Scrum delivery and governance of data quality and SLA adherence.",
       "outcome": "Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation. Quantified savings are not yet included.",
-      "gaps": [
-        "Daily data volume and source-system count",
-        "Countries, teams and consumers served",
-        "Measured onboarding-time and compute-cost improvement"
-      ],
       "flow": [
         [
           "Business sources",
@@ -85,11 +80,6 @@
       ],
       "execution": "Combined ETL leadership, complex SQL development and warehouse modelling with cloud-framework delivery. The next platform phase is an ongoing contribution rather than a completed migration claim.",
       "outcome": "Completed migration of 1,000+ ETL jobs to AWS / Airflow. The subsequent Databricks initiative is in progress; no completion or performance claims are made for that phase.",
-      "gaps": [
-        "Migration duration and validation approach",
-        "Before/after runtime, failure rate and cost",
-        "Databricks target design, ownership and current stage"
-      ],
       "flow": [
         [
           "01 / Legacy estate",
@@ -133,11 +123,6 @@
       ],
       "execution": "Connected stakeholder needs with data models, aggregation strategies and semantic delivery. Governed mappings across Product, Therapeutic Area, Disease Area and related reference domains.",
       "outcome": "Enabled commercial and medical analytics through a governed semantic layer, with 10+ data marts supporting consistent downstream reporting.",
-      "gaps": [
-        "Markets, active users and reporting teams",
-        "An anonymised KPI or semantic-model example",
-        "Reporting time saved and adoption evidence"
-      ],
       "flow": [
         [
           "Enterprise foundation",
@@ -182,11 +167,6 @@
       ],
       "execution": "Contributed to stakeholder solutioning during the 2018 Singapore business visit and delivered the OTIF data-engineering work in 2019.",
       "outcome": "Enabled OTIF reporting using calendar-aware delivery calculations. Business improvement percentages and the reporting scale remain to be documented.",
-      "gaps": [
-        "Shipment volume and geographical coverage",
-        "A worked delivery-date example",
-        "Reporting accuracy or time improvement"
-      ],
       "flow": [
         [
           "Operational inputs",

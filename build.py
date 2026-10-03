@@ -91,7 +91,7 @@ body=body.replace('<section class="contact-section"',extra+'<section class="cont
 for i,p in enumerate(DATA['projects']):
     nxt=DATA['projects'][(i+1)%len(DATA['projects'])]
     vals={k.upper():esc(v) for k,v in p.items() if isinstance(v,str)}
-    vals.update(HEADLINE=esc(p['title']),PROBLEM_TITLE='The challenge behind the platform.' if p['slug']!='otif' else 'A delivery date has dependencies.',FLOW=''.join(f'<div class="case-flow-step"><span>{j+1:02}</span><div><strong>{esc(title)}</strong><small>{esc(copy)}</small></div></div>' for j,(title,copy) in enumerate(p['flow'])),DECISIONS=''.join(f'<article><span>{j+1:02}</span><p>{esc(copy)}</p></article>' for j,copy in enumerate(p['decisions'])),STACK=' · '.join(map(esc,p['stack'])),METRIC_LABEL=esc(p['metricLabel']),GAPS=''.join(f'<li>{esc(g)}</li>' for g in p['gaps']),NEXT_SLUG=nxt['slug'],NEXT_NAME=esc(nxt['name']))
+    vals.update(HEADLINE=esc(p['title']),PROBLEM_TITLE='The challenge behind the platform.' if p['slug']!='otif' else 'A delivery date has dependencies.',FLOW=''.join(f'<div class="case-flow-step"><span>{j+1:02}</span><div><strong>{esc(title)}</strong><small>{esc(copy)}</small></div></div>' for j,(title,copy) in enumerate(p['flow'])),DECISIONS=''.join(f'<article><span>{j+1:02}</span><p>{esc(copy)}</p></article>' for j,copy in enumerate(p['decisions'])),STACK=' · '.join(map(esc,p['stack'])),METRIC_LABEL=esc(p['metricLabel']),NEXT_SLUG=nxt['slug'],NEXT_NAME=esc(nxt['name']))
     folder=ROOT/'work'/p['slug'];folder.mkdir(parents=True,exist_ok=True)
     (folder/'index.html').write_text(frame(template('case.html',vals),p['name']+' — '+p['title'],p['summary'],'work/'+p['slug']+'/', '../../'))
 # Build only an explicit allowlist; never publish briefs or source documents.
