@@ -7,6 +7,7 @@ from urllib.parse import urlsplit, unquote
 ROOT=Path(__file__).resolve().parent
 DATA=json.loads((ROOT/'content/portfolio.json').read_text())
 CSS_VERSION=hashlib.sha256((ROOT/'styles.css').read_bytes()).hexdigest()[:12]
+SCRIPT_VERSION=hashlib.sha256((ROOT/'script.js').read_bytes()).hexdigest()[:12]
 def esc(value): return escape(str(value), quote=True)
 def template(name, values):
     text=(ROOT/'templates'/name).read_text()
@@ -21,7 +22,7 @@ def frame(body,title,description,path='',prefix=''):
         social=f'<meta property="og:image" content="{DATA["origin"]}/assets/social-preview.jpg"><meta property="og:image:width" content="1734"><meta property="og:image:height" content="907"><meta property="og:image:alt" content="Parth Sarthi — Data architecture, platform modernisation and technical leadership"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{DATA["origin"]}/assets/social-preview.jpg">'
     person={'@context':'https://schema.org','@type':'Person','name':DATA['name'],'url':DATA['origin'],'jobTitle':'Solution Architect','email':'mailto:'+DATA['email'],'sameAs':[DATA['linkedin']],'worksFor':{'@type':'Organization','name':'Tata Consultancy Services'},'knowsAbout':['Data architecture','Data engineering','Platform modernisation','Technical leadership']}
     schema=person if not path else {'@context':'https://schema.org','@type':'Article','headline':title,'description':description,'url':canonical,'author':{'@type':'Person','name':DATA['name'],'url':DATA['origin']}}
-    return template('base.html',dict(BODY=body,TITLE=esc(title),DESCRIPTION=esc(description),CANONICAL=esc(canonical),ROOT=prefix,CSS_VERSION=CSS_VERSION,SOCIAL=social,SCHEMA=json.dumps(schema).replace('</','<\\/')))
+    return template('base.html',dict(BODY=body,TITLE=esc(title),DESCRIPTION=esc(description),CANONICAL=esc(canonical),ROOT=prefix,CSS_VERSION=CSS_VERSION,SCRIPT_VERSION=SCRIPT_VERSION,SOCIAL=social,SCHEMA=json.dumps(schema).replace('</','<\\/')))
 
 def graphic(project):
     slug=project['slug']
@@ -41,6 +42,10 @@ for p in DATA['projects'][:3]:
     projects+=f'<article class="project-feature">{graphic(p)}<div class="project-info"><div class="project-kicker"><span>{p["number"]}</span><span class="eyebrow">{esc(p["category"])}</span></div><h3>{esc(p["title"])}</h3><p>{esc(p["summary"])}</p><p class="project-name">{esc(p["name"])} / TCS · Johnson & Johnson</p><a class="text-link" href="work/{p["slug"]}/">Read the case study <span>↗</span></a></div></article>'
 milestones=''.join(f'<article><span class="eyebrow">{esc(year)}</span><h3>{esc(title)}</h3><p>{esc(copy)}</p></article>' for year,title,copy in DATA['milestones'])
 credentials=''
+brand_marks={
+    'Claude':'<svg class="credential-brand-mark claude-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2v8M16 22v8M2 16h8m12 0h8M6.1 6.1l5.7 5.7m8.4 8.4 5.7 5.7m0-19.8-5.7 5.7m-8.4 8.4-5.7 5.7"/></svg>',
+    'Databricks':'<svg class="credential-brand-mark databricks-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 12 6-12 6L4 9l12-6Zm-12 12 12 6 12-6M4 21l12 6 12-6"/></svg>'
+}
 for i,c in enumerate(DATA['credentials']):
     links=c.get('verificationLinks') or ([{'label':'Verify credential','url':c['url']}] if c.get('url') else [])
     for verification in links:
@@ -53,7 +58,7 @@ for i,c in enumerate(DATA['credentials']):
     else:
         action='<span>Verification link pending</span>'
     credentials+=f'<article class="credential-card" data-group="{esc(c["group"])}"><span class="eyebrow">{esc(c["label"])}</span><h3>{esc(c["title"])}</h3><p>{esc(c["type"])}</p><div class="credential-bottom">{action}<span>{i+1:02}</span></div></article>'
-body=template('home.html',dict(PROJECTS=projects,MILESTONES=milestones,CREDENTIALS=credentials,SUPER30_IMAGE='__SUPER30_IMAGE__'))
+body=template('home.html',dict(PROJECTS=projects,MILESTONES=milestones,CREDENTIALS=credentials,SUPER30_IMAGE='__SUPER30_IMAGE__',CLAUDE_MARK=brand_marks['Claude'],DATABRICKS_MARK=brand_marks['Databricks']))
 # Curated photography slots can be replaced by editing content only.
 for photo in DATA['photography']:
     if photo['src']:

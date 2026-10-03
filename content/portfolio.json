@@ -32,7 +32,7 @@
         "Replaced access-key-based access with IAM role-based authentication and optimised EMR configurations for workload needs."
       ],
       "execution": "Worked directly with Singapore stakeholders, including during a 2018 business visit, to shape iDiscover and OTIF solutioning. Translated requirements into epics and user stories, with Agile/Scrum delivery and governance of data quality and SLA adherence.",
-      "outcome": "Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation. Quantified savings are not yet included.",
+      "outcome": "Established the enterprise foundation used by iDiscover and the AnGen analytics layer. Reusable patterns reduced onboarding effort; workload optimisation improved infrastructure utilisation.",
       "flow": [
         [
           "Business sources",
